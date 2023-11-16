@@ -1,5 +1,4 @@
 /vendor/
-/composer.lock
 /.gitattributes
 /.idea/.gitignore
 /docker/mariadb/data/.my-healthcheck.cnf
