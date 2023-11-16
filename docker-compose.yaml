@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  money_project_base:
+    container_name: money_project_base
+    build: .
+    working_dir: /src
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/src
+    networks:
+      - money-project-network
+    depends_on:
+      - money_project_db
+
+  money_project_db:
+    container_name: money_project_db
+    image: mariadb
+    user: ${DOCKER_USER_UID:-root}:${DOCKER_USER_GID:-root}
+    ports:
+      - "${DOCKER_HOST_DB_PORT:-3306}:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASES_TO_CREATE: "money_project"
+    volumes:
+      - ./docker/mariadb/data:/var/lib/mysql
+    networks:
+      - money-project-network
+
+
+
+networks:
+  money-project-network:
+    driver: bridge

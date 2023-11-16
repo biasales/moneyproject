@@ -1,0 +1,18 @@
+{
+    "name": "biasales/moneyproject",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MoneyProject\\": "src/"
+        }
+    },
+    "require": {
+        "r2soffner/r2s-simple-router": "^0.1.1",
+        "slim/slim": "^4.0",
+        "erik.riccioppo/the-oracle": "^0.0.1"
+    },
+    "require-dev": {
+        "phpunit/php-invoker": "^4.0",
+        "phpunit/phpunit": "^10.4"
+    }
+}
