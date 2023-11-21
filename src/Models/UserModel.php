@@ -4,7 +4,7 @@ namespace MoneyProject\Models;
 
 class UserModel
 {
-    public static function getAllUsers(): array
+    public static function getAllUserss(): array
     {
         // Implementar lógica para obter todos os usuários
         return [];
